@@ -27,8 +27,8 @@ public class jailoc extends Fragment {
 
 
         Intent i=new Intent(getActivity(),MainActivity.class);
-        i.putExtra("latitude","val1");
-        i.putExtra("longitude","val2");
+        i.putExtra("latitude","26.51");
+        i.putExtra("longitude","89.23");
         i.putExtra("home","jaigaon");
         getActivity().startActivity(i);
 

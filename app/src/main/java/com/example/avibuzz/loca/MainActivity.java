@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
 
         lblLocation=(TextView)findViewById(R.id.lblLocation);
         showlocation=(Button)findViewById(R.id.buttonShowLocation);
-        startlocationupdates=(Button)findViewById(R.id.buttonUpdateLocation);
+       
         diffrence=(TextView)findViewById(R.id.diff);
         homloc=(TextView)findViewById(R.id.homloc);
 
@@ -121,15 +121,11 @@ public class MainActivity extends AppCompatActivity
         showlocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{displayLocation();}catch (NullPointerException e){Toast.makeText(getApplicationContext(),"Please choose a home location",Toast.LENGTH_SHORT).show();}
+                try{displayLocation();
+                    togglePeriodLocationUpdate();}catch (NullPointerException e){Toast.makeText(getApplicationContext(),"Please choose a home location",Toast.LENGTH_SHORT).show();}
             }
         });
-        startlocationupdates.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                togglePeriodLocationUpdate();
-            }
-        });
+
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -303,12 +299,12 @@ public class MainActivity extends AppCompatActivity
     {
         if(!mRequestLocationUpdate)
         {
-            startlocationupdates.setText("stop location update");
+
             mRequestLocationUpdate=true;
             startLocationUpdate();
         }else
         {
-            startlocationupdates.setText("start location update");
+
             mRequestLocationUpdate=false;
             stopLocationUpdate();
 
